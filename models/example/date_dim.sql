@@ -19,7 +19,7 @@ END AS DAY_TYPE,
 {{function1('started_at')}} As Time,
 {{get_seasons('started_at')}} AS Season
 from
-{{ source('DEMO', 'BIKE') }}
+{{ ref('stg_bike') }}
 where STARTED_AT != 'started_at' and STARTED_AT != '"started_at"'
 )
 select 
